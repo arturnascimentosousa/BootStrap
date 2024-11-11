@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarHub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">GerminaCar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" onclick="showComingSoon(this)">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showComingSoon(this)">Carros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showComingSoon(this)">Contato</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showComingSoon(this)">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="carouselExample" class="carousel slide my-4" style="max-width: 90%; margin: 0 auto;">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./assets/URUS.jpg" class="d-block w-100" alt="Lamborghini Urus">
+            </div>
+            <div class="carousel-item">
+                <img src="./assets/G63.jpg" class="d-block w-100" alt="Mercedes G63">
+            </div>
+            <div class="carousel-item">
+                <img src="./assets/GTR.jpg" class="d-block w-100" alt="Nissan GTR">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="container my-5 text-center">
+        <h2>Categorias de Carros</h2>
+        <div class="btn-group mt-3" role="group">
+            <button type="button" class="btn btn-outline-primary" onclick="selectCategory(this, 'sedans')">Sedans</button>
+            <button type="button" class="btn btn-outline-primary" onclick="selectCategory(this, 'suvs')">SUVs</button>
+            <button type="button" class="btn btn-outline-primary" onclick="selectCategory(this, 'esportivos')">Esportivos</button>
+        </div>
+    </div>
+    
+    <div id="sedans" class="container d-flex justify-content-center flex-wrap">
+        <div class="card m-3" style="width: 18rem;">
+            <img src="./assets/320I.jpg" style="width: 150px; height: 150px; object-fit: cover;" class="card-img-top w-100" alt="BMW 320I">
+            <div class="card-body">
+                <h5 class="card-title">BMW 320I</h5>
+                <p class="card-text">Um sedan elegante e confortável, ideal para a cidade.</p>
+                <button class="btn btn-primary" onclick="showCarDetails('BMW 320I', 'Um sedan elegante e confortável, ideal para a cidade.')">Detalhes</button>
+            </div>
+        </div>
+        <div class="card m-3" style="width: 18rem;">
+            <img src="./assets/CLA200.jpg" style="width: 150px; height: 150px; object-fit: cover;" class="card-img-top w-100" alt="Mercedes CLA 200">
+            <div class="card-body">
+                <h5 class="card-title">Mercedes CLA 200</h5>
+                <p class="card-text">Eficiência e conforto em um único carro.</p>
+                <button class="btn btn-primary" onclick="showCarDetails('Mercedes CLA 200', 'Eficiência e conforto em um único carro.')">Detalhes</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="suvs" class="container d-flex justify-content-center flex-wrap" style="display: none;">
+        <div class="card m-3" style="width: 18rem;">
+            <img src="./assets/URUS.jpg" style="width: 150px; height: 150px; object-fit: cover;" class="card-img-top w-100" alt="Lamborghini Urus">
+            <div class="card-body">
+                <h5 class="card-title">Lamborghini Urus</h5>
+                <p class="card-text">Espaçoso e seguro, ideal para toda a família.</p>
+                <button class="btn btn-primary" onclick="showCarDetails('Lamborghini Urus', 'Espaçoso e seguro, ideal para toda a família.')">Detalhes</button>
+            </div>
+        </div>
+        <div class="card m-3" style="width: 18rem;">
+            <img src="./assets/G63.jpg" style="width: 150px; height: 150px; object-fit: cover;" class="card-img-top w-100" alt="Mercedes G63">
+            <div class="card-body">
+                <h5 class="card-title">Mercedes G63</h5>
+                <p class="card-text">Versátil e fácil de manobrar na cidade.</p>
+                <button class="btn btn-primary" onclick="showCarDetails('Mercedes G63', 'Versátil e fácil de manobrar na cidade.')">Detalhes</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="esportivos" class="container d-flex justify-content-center flex-wrap" style="display: none;">
+        <div class="card m-3" style="width: 18rem;">
+            <img src="./assets/GTR.jpg" style="width: 150px; height: 150px; object-fit: cover;" class="card-img-top w-100" alt="Nissan GTR">
+            <div class="card-body">
+                <h5 class="card-title">Nissan Gtr R35</h5>
+                <p class="card-text">Alta performance e design sofisticado.</p>
+                <button class="btn btn-primary" onclick="showCarDetails('Nissan Gtr R35', 'Alta performance e design sofisticado.')">Detalhes</button>
+            </div>
+        </div>
+        <div class="card m-3" style="width: 18rem;">
+            <img src="./assets/911.jpg" style="width: 150px; height: 150px; object-fit: cover;" class="card-img-top w-100" alt="Porsche 911">
+            <div class="card-body">
+                <h5 class="card-title">Porsche 911</h5>
+                <p class="card-text">Potência e agilidade para as ruas.</p>
+                <button class="btn btn-primary" onclick="showCarDetails('Porsche 911', 'Potência e agilidade para as ruas.')">Detalhes</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <h3>Mais Informações</h3>
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        O que são SUVs?
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        SUVs (Sport Utility Vehicles) são carros que combinam as características de um carro de passeio com a robustez e capacidade de um veículo off-road.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        O que são carros esportivos?
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Carros esportivos são projetados para oferecer o melhor desempenho, com foco em velocidade, manuseio e design aerodinâmico.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Diferenças entre Sedans e SUVs
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Sedans são carros mais baixos e focados no conforto, enquanto SUVs têm um tamanho maior e são mais indicados para quem precisa de mais espaço e versatilidade.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="carModal" tabindex="-1" aria-labelledby="carModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="carModalLabel">Carro Detalhado</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5 id="carName"></h5>
+                    <p id="carDescription"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function showCarDetails(name, description) {
+            document.getElementById("carName").textContent = name;
+            document.getElementById("carDescription").textContent = description;
+            const myModal = new bootstrap.Modal(document.getElementById('carModal'));
+            myModal.show();
+        }
+
+        function selectCategory(button, categoryId) {
+            document.querySelectorAll('.btn-group .btn').forEach(btn => btn.classList.remove('active'));
+
+            button.classList.add('active');
+
+            document.querySelectorAll('.container[id]').forEach(container => container.classList.add('d-none'));
+            document.getElementById(categoryId).classList.remove('d-none');
+        }
+
+        function showComingSoon(element) {
+            if (element.textContent === "Home") {
+                alert("Você já está aqui");
+            } else {
+                alert("Em breve!");
+            }
+        }
+    </script>
+
+</body>
+</html>
